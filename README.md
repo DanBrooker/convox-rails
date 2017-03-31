@@ -1,7 +1,3 @@
-# This project is no longer maintained
-
-To help Convox users prepare their apps for deployment as quickly and conveniently as possible, we now recommend using `convox init` and Buildpacks instead of writing custom Dockerfiles that build `FROM` base images like this one. For more information, see our [doc about the convox init command](https://convox.com/docs/command-convox-init/).
-
 # convox/rails
 
 Convox base image for Ruby on Rails
@@ -9,19 +5,19 @@ Convox base image for Ruby on Rails
 ## Usage
 
 	FROM convox/rails
-	
+
 	# copy only the files needed for bundle install
 	COPY Gemfile      /app/Gemfile
 	COPY Gemfile.lock /app/Gemfile.lock
 	RUN bundle install
-	
+
 	# copy only the files needed for assets:precompile
 	COPY Rakefile   /app/Rakefile
 	COPY config     /app/config
 	COPY public     /app/public
 	COPY app/assets /app/app/assets
 	RUN rake assets:precompile
-	
+
 	# copy the rest of the app
 	COPY . /app
 
